@@ -1,125 +1,142 @@
-* {
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
 
+
   /* header用 */
-  .c-header-wrapper {
+
+  .header-wrapper {
     background-color: #ec715f;
   }
 
-.c-header {
+  .header {
     align-items: center;
-    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
-    width: 1024px;
+    width: 100%;
+    max-width: 1024px;
     margin: 0 auto;
     height: 70px;
-    background-color: #ec715f
   }
 
-  .c-header__logo img {
+  .header__logo > img {
     height: 70px;
   }
 
-  .c-header__list {
-    box-sizing: border-box;
-    display: flex;
-
+  @media screen and (max-width: 767px) {
+    .header {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      width: 90%;
+      margin: 0 auto;
+      height: 50px;
+    }
+    .header__logo > img {
+      height: 50px;
+    }
   }
 
-  .c-header__list-item {
+  .nav-menu__list {
+    display: flex;
+  }
+
+  .nav-menu__list__item {
     list-style: none;
     text-decoration: none;
     margin: auto 30px;
   }
 
-  .c-header__list-link {
+  .nav-menu__list__item__link {
     color: #FAFAFA;
     display: block;
     text-decoration: none;
-    font-size: 16px; /* カスタマイズしてください */
+    font-size: 16px;
   }
 
-  .c-header__list-link:hover {
-    filter: opacity(0.6); /* カスタマイズしてください */
+  .nav-menu__list__item__link:hover {
+    filter: opacity(0.6);
   }
 
-  .c-hamburger-menu {
-    position: relative;
+  /* jQueryで非表示にした状態で画面を広げたときにメニューが消える不具合を修正 */
+  /* 少しマニアックなバグなのであまり気にしなくても大丈夫です */
+  /* 厳密にはjQuery側で対応する方が望ましいです */
+  @media not screen and (max-width: 767px) {
+    .nav-menu__list {
+      display: flex !important;
+    }
   }
 
   @media screen and (max-width: 767px) {
-    .c-header {
-        align-items: center;
-        box-sizing: border-box;
-        display: flex;
-        justify-content: space-between;
-        width: 90%;
-        margin: 0 auto;
-        height: 50px;
-        background-color: #ec715f
-      }
-      .c-header__logo img {
-        height: 50px;
-      }
-
-    .c-hamburger-menu__list {
-      align-items: flex-start;
-      display: flex;
-      flex-direction: column;
-      left: 0;
+    .nav-menu__list {
       position: absolute;
-      top: 100%;
-      width: 100%;
+      top: 50px;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      display: none;
+      background-color: #D65E4E;
     }
 
-  }
+    .nav-menu__list__item {
+      padding: 16px;
+      text-align: center;
+    }
 
-  .c-hamburger-menu__input {
-    display: none;
-  }
-  .c-hamburger-menu__button {
-    display: none;
-  }
-
-  @media screen and (max-width: 767px) {
-    .c-hamburger-menu__button {
+    .nav-menu__button {
       display: flex;
       flex-direction: column;
+      justify-content: center;
       gap: 5px;
+      border: 1px #FAFAFA solid;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
     }
-  }
 
-  .c-hamburger-menu__button-mark {
-    background-color: #FAFAFA;
-    display: block;
-    height: 1px;
-    width: 20px;
-    margin: 0 auto;
+    .nav-menu__button:hover {
+      filter: opacity(0.6);
+    }
+
+    .nav-menu__button__bar {
+      background-color: #FAFAFA;
+      display: block;
+      height: 1px;
+      width: 20px;
+      margin: 0 auto;
+      transition: transform 0.2s;
+    }
+
+    .nav-menu__button.active > .nav-menu__button__bar:nth-child(1) {
+      -webkit-transform: translateY(6px) rotate(-45deg);
+      transform: translateY(6px) rotate(-45deg);
+    }
+
+    .nav-menu__button.active > .nav-menu__button__bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-menu__button.active > .nav-menu__button__bar:nth-child(3) {
+      -webkit-transform: translateY(-6px) rotate(45deg);
+      transform: translateY(-6px) rotate(45deg);
+    }
   }
 
 
   /* main-visual用 */
+
   .main-visual {
     position: relative;
     height: 650px;
     overflow: hidden;
   }
 
-  .main-visual img {
+  .main-visual__img-wrapper > img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-
-  .pc {
-    display: block !important;
-  }
-  .sp {
-    display: none !important;
   }
 
   .text-overlay {
@@ -130,35 +147,21 @@
     right: 0;
     bottom: 10px;
     text-align: center;
+    color: #FAFAFA;
+    width: 90%;
+    margin: 0 auto;
   }
 
   .top-text {
     font-size: 64px;
-    color: #FAFAFA;
   }
 
   .bottom-text {
     font-size: 20px;
-    color: #FAFAFA;
-    margin-top: auto;
     padding-top: 10px;
   }
 
   @media screen and (max-width: 767px) {
-    .pc {
-      display: none !important;
-    }
-
-    .sp {
-      display: block !important;
-      height: 650px;
-    }
-
-    .text-overlay{
-      width: 90%;
-      margin: 0 auto;
-    }
-
     .top-text{
       font-size: 40px;
     }
@@ -172,32 +175,32 @@
   /* main用 */
 
   .main {
+    padding: 90px 0;
     background-color: #eceff1;
   }
 
-  .main-taxt{
-    width: 920px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 90px;
+  .main-text{
+    width: 100%;
+    max-width: 920px;
+    margin: 0 auto;
     padding-bottom: 30px;
     text-align: center;
   }
 
   @media screen and (max-width: 767px) {
-    .main-taxt{
+    .main-text{
       width: 90%;
     }
   }
 
-  .main-taxt-top{
+  .main-text-top{
     padding-bottom: 8px;
     font-size: 32px;
     color: #000000;
   }
 
   .bar{
-    border: 1.5px solid #EC715F;
+    border: 1px solid #EC715F; /* 単位pxには小数点は非推奨 */
     width: 70px;
     margin: 0 auto;
   }
@@ -208,21 +211,19 @@
     }
   }
 
-  .main-taxt-bottom{
+  .main-text-bottom{
     padding-top: 30px;
     font-size: 16px;
     color: #000000;
   }
-
   .img-container{
-    padding-bottom: 90px;
-    width: 920px;
-    margin-left: auto;
-    margin-right: auto;
+
+    width: 100%;
+    max-width: 920px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 5px;
-    row-gap: 5px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px; /* columnとrowが同じならgapでOK */
   }
 
   @media screen and (max-width: 767px) {
@@ -234,7 +235,8 @@
 
   .img-item{
     height: 250px;
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
   }
 
   @media screen and (max-width: 767px) {
@@ -243,9 +245,9 @@
     }
   }
 
-  .img-item img {
-    height: 250px;
-    width: 300px;
+  .img-item > img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
   }
 
@@ -263,20 +265,19 @@
   /* main2用 */
 
   .main2 {
-    padding-bottom: 90px;
+    padding: 90px 0;
   }
 
-  .main2-taxt{
-    width: 980px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 90px;
+  .main2-text{
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
     padding-bottom: 30px;
     text-align: center;
   }
 
   @media screen and (max-width: 767px) {
-    .main2-taxt{
+    .main2-text{
       width: 90%;
     }
   }
@@ -285,19 +286,19 @@
     text-align: center;
   }
 
-  i{
-    font-size: 60px;
+  .font-line{
+    width: 100%;
+    max-width: 980px;
+    text-align: center;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 5px;
   }
 
-  .font-line{
-    width: 980px;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    display: grid;
-    grid-template-columns: 320px 320px 320px;
-    column-gap: 5px;
+  .font-line i{
+    font-size: 60px;
+    margin: 0 auto;
   }
 
   @media screen and (max-width: 767px) {
@@ -335,32 +336,32 @@
 
 
   /* main3用 */
+
   .main3 {
+    padding: 90px 0;
     background-color: #eceff1;
   }
 
-  .main3-taxt{
-    width: 1024px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 90px;
+  .main3-text{
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
     padding-bottom: 30px;
     text-align: center;
   }
 
   @media screen and (max-width: 767px) {
-    .main3-taxt{
+    .main3-text{
       width: 90%;
     }
   }
 
   .main3-icon{
-    width: 1024px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: 512px 512px;
-    padding-bottom: 90px;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   @media screen and (max-width: 767px) {
@@ -374,12 +375,14 @@
     margin: auto;
     height: 250px;
     width: 250px;
+    border-radius: 50%;
+    overflow: hidden;
   }
 
-  .main3-icon-img img{
-    border-radius: 50%;
-    width:  250px;
-    height: 250px;
+  .main3-icon-img > img{
+    width:  100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .main3-icon-top{
@@ -404,95 +407,105 @@
     }
   }
 
+
   /* main4用 */
+
   .main4{
-    padding-bottom: 90px;
+    padding: 90px 0;
   }
 
-  .main4-taxt{
-    width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 90px;
+  .main4-text{
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
     padding-bottom: 30px;
     text-align: center;
   }
 
   @media screen and (max-width: 767px) {
-    .main4-taxt{
+    .main4-text{
       width: 90%;
     }
   }
 
   .main4-line{
-    width: 800px;
+    width: 100%;
+    max-width: 800px;
     display: grid;
-    grid-template-columns: 400px 400px;
-    margin-left: auto;
-    margin-right: auto;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 auto;
   }
 
-  @media screen and (max-width: 767px) {
-    .main4-line{
-      display: block;
-      width: 90%;
-    }
+  .main4-line__box{
+    margin: 0 auto;
   }
+
   .main4-line-top{
     font-size: 20px;
     padding-bottom: 5px;
   }
 
-  .main4-taxt-bottom{
-    padding-bottom: 20px;
+  @media screen and (max-width: 767px) {
+    .main4-line{
+      width: 90%;
+      display: block;
+    }
+
+    .main4-line__box{
+      text-align: center;
+    }
   }
 
   .mail{
     padding-bottom: 20px;
   }
 
-  .main4 i{
+  .sns__account{
+    display: flex;
+    gap: 20px;
+  }
+
+  .mail__link,
+  .telephone__link,
+  .sns__account__link{
+    color: #000000;
+    text-decoration: none;
+  }
+
+  .mail__link:hover,
+  .telephone__link:hover,
+  .sns__account__link:hover{
+    filter: opacity(0.6);
+  }
+
+  .sns__account__link > i{
     font-size: 50px;
   }
 
-  #twitter{
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .sms{
-    margin: 0 auto;
-  }
-
   @media screen and (max-width: 767px) {
-    #twitter{
-      padding-left: 8px;
-      padding-right: 8px;
-    }
-
-    .sms{
-      width: 90%;
-      text-align: center;
-    }
 
     .telephone{
       padding-bottom: 20px;
     }
+
+    .sns__account{
+      justify-content: center;
+      gap: 8px;
+    }
   }
+
+
   /* footer用 */
-  footer {
+
+  .footer-wrapper {
     width: 100%;
     height: 60px;
-    text-align: center;
-    line-height: 60px;
     background-color: #EC715F;
   }
 
-  .footer-text {
+  .footer {
+    text-align: center;
     font-size: 16px;
+    line-height: 60px;
     color: #FAFAFA;
-  }
-
-  .tel{
-    color: #000000;
   }

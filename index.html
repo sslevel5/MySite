@@ -1,58 +1,59 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
+<head>
     <meta charset="UTF-8" />
-    <!-- CSSファイルの読み込み -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- CSSファイルの読み込み -->
     <link rel="stylesheet" href="app.css" />
     <script src="https://kit.fontawesome.com/8b6488317f.js" crossorigin="anonymous"></script>
     <title>MySite_review</title>
-  </head>
+</head>
 
-  <body>
+<body>
 
     <!-- header用のdiv -->
-    <div class="c-header-wrapper">
-        <header class="c-header c-hamburger-menu">
-            <a href="#a" class="c-header__logo"><img src="img/logo.png"></a>
-            <nav>
-                <label for="hamburger" class="c-hamburger-menu__bg"></label>
-                <ul class="c-header__list c-hamburger-menu__list">
-                <li class="c-header__list-item"><a href="#b" class="c-header__list-link">Portfolio</a></li>
-                <li class="c-header__list-item"><a href="#c" class="c-header__list-link">Feature</a></li>
-                <li class="c-header__list-item"><a href="#d" class="c-header__list-link">Profile</a></li>
-                <li class="c-header__list-item"><a href="#e" class="c-header__list-link">Contact</a></li>
+    <div class="header-wrapper">
+        <header class="header">
+            <a href="#a" class="header__logo"><img src="img/logo.png"></a>
+            <nav class="nav-menu">
+                <ul class="nav-menu__list">
+                    <li class="nav-menu__list__item"><a href="#b" class="nav-menu__list__item__link">Portfolio</a></li>
+                    <li class="nav-menu__list__item"><a href="#c" class="nav-menu__list__item__link">Feature</a></li>
+                    <li class="nav-menu__list__item"><a href="#d" class="nav-menu__list__item__link">Profile</a></li>
+                    <li class="nav-menu__list__item"><a href="#e" class="nav-menu__list__item__link">Contact</a></li>
                 </ul>
-                <div class="c-hamburger-menu__button">
-                    <span class="c-hamburger-menu__button-mark"></span>
-                    <span class="c-hamburger-menu__button-mark"></span>
-                    <span class="c-hamburger-menu__button-mark"></span>
+                <div class="nav-menu__button">
+                    <span class="nav-menu__button__bar"></span>
+                    <span class="nav-menu__button__bar"></span>
+                    <span class="nav-menu__button__bar"></span>
                 </div>
             </nav>
         </header>
     </div>
 
-
-
-
     <!-- main-visual用のdiv -->
-    <div class="main-visual" id="a">
-        <a><img class="sp" src="img/code.png"</a>
-        <a><img class="pc" src="img/mv.png"></a>
+    <section class="main-visual" id="a">
+        <!-- pictureタグで画像を切り替えています -->
+        <picture class="main-visual__img-wrapper">
+            <source srcset="img/code.png" media="(max-width: 767px)" />
+            <img src="img/mv.png" alt="" />
+        </picture>
         <div class="text-overlay">
             <h2 class="top-text">Lorem Ipsum</h2>
             <p class="bottom-text">simply dummy text of the printing</p>
         </div>
-    </div>
+    </section>
 
     <!-- main用のdiv -->
-    <div class="main" id="b">
-        <div class="main-taxt">
-            <h2 class="main-taxt-top">Portfolio</h2>
+    <section class="main" id="b">
+        <div class="main-text">
+            <h2 class="main-text-top">Portfolio</h2>
             <div class="bar"></div>
-            <p class="main-taxt-bottom">It is a long established fact that a reader will be distracted by the readable<br>
-            content of a page when looking at its layout.<br>
-            The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
+            <p class="main-text-bottom">
+                It is a long established fact that a reader will be distracted by the readable<br>
+                content of a page when looking at its layout.<br>
+                The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters
+            </p>
         </div>
         <div class="img-container">
             <div class="img-item img-sp"><img src="img/sketch.jpg"></div>
@@ -62,14 +63,16 @@
             <div class="img-item img-sp"><img src="img/talk.jpg"></div>
             <div class="img-item"><img src="img/webcamp-mother.png"></div>
         </div>
-    </div>
-    <div class="main2" id="c">
-        <div class="main2-taxt">
-            <h2 class="main-taxt-top">Feature</h2>
+    </section>
+    <section class="main2" id="c">
+        <div class="main2-text">
+            <h2 class="main-text-top">Feature</h2>
             <div class="bar"></div>
-                <p class="main-taxt-bottom">It is a long established fact that a reader will be distracted by the readable<br>
+            <p class="main-text-bottom">
+                It is a long established fact that a reader will be distracted by the readable<br>
                 content of a page when looking at its layout.<br>
-                The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
+                The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters
+            </p>
         </div>
         <div class="font-line">
             <div>
@@ -88,14 +91,16 @@
                 <p class="font-line-bottom">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur</p>
             </div>
         </div>
-    </div>
-    <div class="main3" id="d">
-        <div class="main3-taxt">
-            <h2 class="main-taxt-top">Profile</h2>
+    </section>
+    <section class="main3" id="d">
+        <div class="main3-text">
+            <h2 class="main-text-top">Profile</h2>
             <div class="bar"></div>
-            <p class="main-taxt-bottom">It is a long established fact that a reader will be distracted by the readable<br>
-            content of a page when looking at its layout.<br>
-            The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
+            <p class="main-text-bottom">
+                It is a long established fact that a reader will be distracted by the readable<br>
+                content of a page when looking at its layout.<br>
+                The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters
+            </p>
         </div>
         <div class="main3-icon">
             <div class="main3-icon-img"><img src="img/my-icon.jpg"></div>
@@ -106,44 +111,68 @@
                 </div>
                 <div>
                     <h3 class="main3-icon-top">MySkills</h3>
-                    <p class="main3-icon-bottom">HTML/CSS,JavaScript,JQuery,PhotoShop</p>
+                    <p class="main3-icon-bottom">HTML/CSS, JavaScript, JQuery, PhotoShop</p>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="main4" id="e">
-        <div class="main4-taxt">
-            <h2 class="main-taxt-top">Contact</h2>
+    </section>
+    <section class="main4" id="e">
+        <div class="main4-text">
+            <h2 class="main-text-top">Contact</h2>
             <div class="bar"></div>
-            <p class="main-taxt-bottom">It is a long established fact that a reader will be distracted by the readable<br>
-            content of a page when looking at its layout.<br>
-            The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
+            <p class="main-text-bottom">
+                It is a long established fact that a reader will be distracted by the readable<br>
+                content of a page when looking at its layout.<br>
+                The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters
+            </p>
         </div>
         <div class="main4-line">
-            <div class="sms">
+            <div class="main4-line__box">
                 <div class="mail">
                     <h3 class="main4-line-top">Mail</h3>
-                    <a class="tel">xxx@xxx.com</a>
+                    <a class="mail__link" href="#">xxx@xxx.com</a>
                 </div>
                 <div class="telephone">
                     <h3 class="main4-line-top">Tel</h3>
-                    <a class="tel">000-0000-0000</a>
+                    <a class="telephone__link" href="#">000-0000-0000</a>
                 </div>
             </div>
-            <div class="sms">
-              <h3 class="main4-line-top">SNS</h3>
-              <i class="fa-brands fa-facebook-f"></i>
-              <i class="fa-brands fa-twitter" id="twitter"></i>
-              <i class="fa-brands fa-instagram"></i>
+            <div class="main4-line__box">
+                <div class="sns">
+                    <h3 class="main4-line-top">SNS</h3>
+                    <div class="sns__account">
+                        <a class="sns__account__link" href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a class="sns__account__link" href="#"><i class="fa-brands fa-twitter" id="twitter"></i></a>
+                        <a class="sns__account__link" href="#"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
             </div>
-          </div>
-    </div>
+        </div>
+    </section>
 
     <!-- footer用のdiv -->
-    <div class="footer">
-        <footer>
-            <p class="footer-text">©︎ 2024 WebCamp</p>
+    <div class="footer-wrapper">
+        <footer class="footer">
+            <p>©︎ 2024 WebCamp</p>
         </footer>
     </div>
-  </body>
+
+    <!-- ハンバーガーメニューを動かすためのjQueryとコード -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $(function() {
+            $('.nav-menu__button').on('click', function(event) {
+                $(this).toggleClass('active');
+                $('.nav-menu__list').fadeToggle();
+                event.preventDefault();
+            });
+        });
+        $(function() {
+            $('.nav-menu__list__item__link').on('click', function(event) {
+                $('.nav-menu__button').toggleClass('active');
+                $('.nav-menu__list').fadeToggle();
+            });
+        });
+    </script>
+</body>
 </html>
